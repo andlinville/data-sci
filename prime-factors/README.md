@@ -14,3 +14,15 @@ Description of first pass
 ### Second Pass
 
 Description of second pass
+
+### Solution
+
+The output of my second pass:
+
+```python
+Example problem:
+[5, 7, 13, 29]
+
+Real problem:
+[71, 839, 1471, 6857]
+6857
