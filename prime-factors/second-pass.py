@@ -1,7 +1,6 @@
 # python 3.3
 
 def get_all_prime_factors(x, factors):
-
     i = 2
     while x % i != 0 and i**2 <= x:
         i += 1
