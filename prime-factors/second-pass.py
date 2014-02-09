@@ -15,7 +15,6 @@ def get_all_prime_factors(x, factors):
     
 if __name__ == '__main__':
     a = 13195
-    
     print('Example problem:')
     print(get_all_prime_factors(a, []))
     print()
