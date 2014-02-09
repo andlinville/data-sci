@@ -20,9 +20,20 @@ Description of second pass
 The output of my second pass:
 
 ```python
-Example problem:
-[5, 7, 13, 29]
+a = 13195
+print('Example problem:')
+print(get_all_prime_factors(a, []))
+print()
 
-Real problem:
-[71, 839, 1471, 6857]
-6857
+b = 600851475143
+factors = get_all_prime_factors(b, [])
+print('Real problem:')
+print(factors)
+print(max(factors))
+
+## Example problem:
+## [5, 7, 13, 29]
+##
+## Real problem:
+## [71, 839, 1471, 6857]
+## 6857
