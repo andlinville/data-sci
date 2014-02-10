@@ -9,11 +9,11 @@ The prime factors of 13195 are 5, 7, 13 and 29.  What is the largest prime facto
 
 ### First Pass
 
-Description of first pass
+This was the first algorithm that came to mind. I tried a couple optimizations (looping through smaller sets of numbers by, say, skipping even numbers, etc.), but nothing would get the code to run quickly enough to solve the problem.
 
 ### Second Pass
 
-Description of second pass
+After racking my brain for long-forgotten middle school math lessons and reading up on factor trees, I came to this solution. The problem lends itself naturally to recursion--find the lowest factor, which must be prime, and then call the same function on the other half of the resulting factor pair.
 
 ### Solution
 
