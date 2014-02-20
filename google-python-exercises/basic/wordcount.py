@@ -55,16 +55,23 @@ def get_words(file):
 
 def print_words(file):
   word_dict = get_words(file)
-  keys = list(word_dict.keys())
-  keys.sort()
+  keys = sorted(word_dict.keys())
   for i in keys:
     print i + " " + str(word_dict[i])
   return
 
 def print_top(file):
-  word_list = get_words(file)
-  print result
-  return result
+  def tuple_sorter(t):
+    return -t[len(t)-1]
+  word_dict = get_words(file)
+  pairs = sorted(word_dict.items(), key=tuple_sorter)
+  if len(pairs) < 20:
+    last = len(pairs)
+  else:
+    last = 20
+  for i in range(0, last):
+    print pairs[i][0] + " " + str(pairs[i][1])
+  return
 
 ###
 
