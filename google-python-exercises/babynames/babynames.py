@@ -40,8 +40,40 @@ def extract_names(filename):
   followed by the name-rank strings in alphabetical order.
   ['2006', 'Aaliyah 91', Aaron 57', 'Abagail 895', ' ...]
   """
-  # +++your code here+++
-  return
+
+  # read and print file
+  docstring = ""
+  doclist = []
+  with open(filename, 'r') as file:
+    for line in file:
+      docstring = docstring + line
+      doclist.append(line)
+
+  name_list = []
+  # find year and add it to the result list
+  year_match = re.search(r'Popularity in (\d\d\d\d)', docstring)
+  if year_match:
+    year = year_match.group(1)
+    name_list.append(year)
+  else:
+    print 'no match found'
+
+  # get names and ranks and print
+  name_dict = {}
+  for line in doclist:
+    name_match = re.search(r'<td\b[^>]*>(\d+)</td><td\b[^>]*>(\w+)</td><td\b[^>]*>(\w+)</td>', line)
+    if name_match:
+      rank, male, female = name_match.group(1), name_match.group(2), name_match.group(3)
+      name_dict[male] = rank
+      name_dict[female] = rank
+
+  # build names list
+  keys = sorted(name_dict.keys())
+  for k in keys:
+    name_list.append(k + ' ' + str(name_dict[k]))
+
+  print str(filename) + ' complete'
+  return name_list
 
 
 def main():
@@ -60,9 +92,18 @@ def main():
     summary = True
     del args[0]
 
-  # +++your code here+++
   # For each filename, get the names, then either print the text output
   # or write it to a summary file
+  for a in args:
+    list = extract_names(a)
+    if summary:
+      with open(a + '.summary', 'w') as output:
+        for l in list:
+          output.write(str(l) + '\n')
+      output.close()
+    else:
+      for n in list: 
+        print n
   
 if __name__ == '__main__':
   main()
